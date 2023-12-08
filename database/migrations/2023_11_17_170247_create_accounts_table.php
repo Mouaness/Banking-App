@@ -15,9 +15,11 @@ return new class extends Migration
         Schema::create('accounts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
+            $table->string('account_name');
+            $table->string('account_number');
             $table->enum('currency', ['LBP', 'EUR', 'USD']);
             $table->integer('balance');
-            $table->enum('status', ['active', 'rejected', 'pending', 'banned']);
+            $table->enum('status', ['active', 'banned']);
             $table->timestamps();
         });
     }
