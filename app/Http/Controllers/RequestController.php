@@ -62,6 +62,7 @@ class RequestController extends Controller
         $validator = Validator::make($request->all(), [
             'username' => 'required|string',
             'account_name' => 'required|string',
+            'created_at' => 'required|date',
             'decision' => 'required|string|in:approve,reject',
         ]);
 
@@ -71,7 +72,9 @@ class RequestController extends Controller
         }
 
         //get request id from username and account name
-        $userRequest = UserRequest::where('username', $request->username)->where('account_name', $request->account_name)->first();
+        $userRequest = UserRequest::where('username', $request->username)->
+        where('account_name', $request->account_name)->
+        where('created_at', $request->created_at)->first();
         if(!$userRequest){
             return back()->withInput()->withErrors(['request not found' => 'request not found']);
         }

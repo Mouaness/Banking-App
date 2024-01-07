@@ -33,7 +33,7 @@
             <tr>
                 <th>Username</th>
                 <th>Account Name</th>
-                <th>Currency</th>=
+                <th>Currency</th>
                 <th>created_at</th>
                 <th>updated_at</th>
                 <th>Handle Request</th>
@@ -52,6 +52,7 @@
                             @csrf
                             <input type="hidden" name="username" value="{{ $request->username }}">
                             <input type="hidden" name="account_name" value="{{ $request->account_name }}">
+                            <input type="hidden" name="created_at" value="{{ $request->created_at }}">
                             <select name="decision">
                                 <option value="approve">approve</option>
                                 <option value="reject">reject</option>

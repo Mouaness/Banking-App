@@ -227,7 +227,8 @@ class AccountController extends Controller
         }
 
         //return account details
-        return redirect('/transfer');
+        return redirect('/transfer
+        ');
     }
 
     //return all user accounts
